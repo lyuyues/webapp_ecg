@@ -1,0 +1,13 @@
+<div class="row resize-row">
+     <div class="col-md-8 button_gh-group interval-control">
+           <span class="button_gh" *ngFor="let item of timescale;let index = index" (click)="onTimescale(index)">{{item}}</span>
+     </div>
+     <div class="col-md-4 button-group">
+            <button class=" btn btn-primary"(click)="onZoomOut()">+</button>
+            <button class=" btn btn-primary"(click)="onZoomIn()">-</button>
+            <button class=" btn btn-primary"(click)="onReset()">Reset</button>
+            <button class=" btn btn-primary"(click)="onDragLeft()"><</button>
+            <button class=" btn btn-primary"(click)="onDragRight()">></button>
+     </div>
+</div>
+ <svg height="350"></svg>

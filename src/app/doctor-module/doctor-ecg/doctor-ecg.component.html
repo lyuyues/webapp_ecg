@@ -1,0 +1,196 @@
+<div id="main">
+    <header>
+            <ol class="breadcrumb">
+            <li> <a routerLink="./dashboard">doctor</a></li>
+            <li class="active">Test:{{testdata.created}}</li>
+            </ol>
+    </header>
+    <div id="content">
+            <div class="content  table-responsive">
+                  <!--<div class="well well-bg">-->
+                  <div>
+
+                      <div class="row content-row" id="collapseOne"> 
+                            <div *ngIf="mask" class="col-sm-12 col-md-10 col-info imgloader ">
+                              <img src="../assets/images/ecg-loader.gif"/>
+                           </div> 
+                        <div  *ngIf="!mask"  class="col-sm-12 col-md-10 col-info">
+                            <div class="panel panel-primary test-info cardiogram-wrapper">
+                                <!--<div class="panel-heading"> Electrocardiogram : {{testdata.created}}</div>-->
+                                    <div  class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                        <div>
+                                              <app-ecg-data-drag-zoom [data]='channel1'></app-ecg-data-drag-zoom>
+                                        </div>
+                                        <div>
+                                              <app-ecg-data-drag-zoom-2 [data2]='channel2'></app-ecg-data-drag-zoom-2>
+                                        </div> 
+                                        <div class="form-group text-right leave-note-button">
+                                            <button class="btn btn-primary" data-toggle="modal" data-target="#myCommentModal" (click)="parseTestid()">Leave a comment</button>
+                                        </div> 
+                                            <div class="modal fade" id="myCommentModal"  mtabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <form class="search-form" #commentForm="ngForm">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                <h4 class="modal-title" id="myModalLabel">Leave a comment for record {{testTime}}</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <label>Comment content (max: 500 characters):</label>
+                                                                <textarea class="form-control" style="height:200px;" required="required"name="commentCentent" ngModel #commentCentent="ngModel"></textarea>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
+                                                                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmit(commentForm.value)">Submit</button>
+                                                            </div>
+                                                            </form>
+                                                        </div><!-- /.modal-content -->
+                                                    </div><!-- /.modal-dialog -->
+                                             </div>      <!-- /.modal-dialog -->                                                                   
+                                    </div><!--dataTables_wrapper-->
+                            </div><!-- /.panel-info -->
+                        </div><!--col-md-4-->                          
+                        <div class="col-sm-12 col-md-2 col-info">
+                            <div class="panel panel-info test-info test-info-last">
+                                <div class="panel-heading test-id"> Test : {{testdata.created}}</div>
+                                    <div  class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="records-table table table-hover dataTable no-footer"[mfData]="records" #mf="mfDataTable" [mfRowsOnPage]="5" >
+                                                    <thead>
+                                                        <tr>
+                                                          <th style="width: 40%"><mfDefaultSorter by="length">Length</mfDefaultSorter></th>
+                                                          <th style="width: 60%"><mfDefaultSorter by="created">Created</mfDefaultSorter></th>
+                                                          
+                                                         </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        
+                                                        <tr *ngFor="let item of mf.data; let index = index"  [ngClass]="{EcgActive: isActive==index}" (click)="onClickEcg(item.id,index)">
+                                                            <td>{{item.length}}</td>
+                                                            <td>{{item.created}}</td>
+                                                            
+                                                        </tr>
+                                                    </tbody>
+                                              </table>
+                                            </div>
+                                        </div>
+                                    </div><!--dataTables_wrapper-->
+                            </div><!-- /.panel-info -->
+                        </div><!--col-md-4-->
+                      </div><!--row-->
+    
+
+
+                      <div class="row content-row" > 
+                        <ul id="myTab" class="nav nav-tabs">
+                            <li class="active"><a href="#records" data-toggle="tab">Records</a></li>
+                            <li><a href="#notes" data-toggle="tab">Notes</a></li>
+                            <li><a href="#comments" data-toggle="tab">Comments</a></li>
+                        </ul>
+
+                        <div id="myTabContent" class="tab-content">
+                        <div class="col-md-12 tab-pane fade in active" id="records">
+                              <div class="panel panel-info panel-test">
+                                    <div class="panel-heading">Records </div>
+                                    <div  class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                               <table class="records-table table table-hover dataTable no-footer" >
+                                                    <tbody>
+                                                        <tr><td>Records</td><td>{{testdata.total_records}}</td></tr>
+                                                        <tr><td>Comments</td><td >{{testdata.total_comments}}</td></tr>
+                                                        <tr><td>Notes</td><td >{{testdata.total_notes}}</td></tr>
+                                                        <tr><td>Length</td><td >{{testdata.length}}</td></tr>
+                                                    </tbody>
+                                              </table>
+                                            </div>
+                                        </div>
+                                    </div><!--dataTables_wrapper-->
+                              </div><!--panel-info-->
+                        </div><!--col-md-12-->
+                        <div class=" col-md-12 tab-pane fade" id="notes">
+                            <div class="panel panel-info panel-test">
+                                <div class="panel-heading"> Notes</div>
+                                  <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="records-table table table-hover dataTable"[mfData]="notes" #nt="mfDataTable" [mfRowsOnPage]="5" >
+                                                    <thead>
+                                                        <tr>
+                                                          <th style="width: 10%"><mfDefaultSorter></mfDefaultSorter></th>
+                                                          <th style="width: 55%"><mfDefaultSorter by="content">Content</mfDefaultSorter></th>
+                                                          <th style="width: 35%"><mfDefaultSorter by="created">Created</mfDefaultSorter></th>
+                                                         </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngIf="!notes[0]"class="odd"><td colspan="2">No notes found for the ECG test.</td></tr>
+                                                        <tr *ngFor="let item of nt.data; let i = index; ">
+                                                            <td>{{i}}</td>
+                                                            <td>{{item.content}}</td>
+                                                            <td>{{item.created}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td colspan="3">
+                                                                <mfBootstrapPaginator [rowsOnPageSet]="[5,10]"></mfBootstrapPaginator>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>                                                 
+                                              </table>
+                                            </div>
+                                        </div>                                    
+                                  </div> <!-- /.panel-body -->
+                            </div><!-- /.panel-info -->
+                        </div><!--col-md-12-->
+                         <div class="col-sm-12 col-md-12 tab-pane fade" id="comments">
+                              <div class="panel panel-info panel-test panel-test-last">
+                                    <div class="panel-heading">Comments </div>
+                                    <div  class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="records-table table table-hover dataTable"[mfData]="comments" #ct="mfDataTable" [mfRowsOnPage]="5" >
+                                                    <thead>
+                                                        <tr>
+                                                          <th style="width: 10%"><mfDefaultSorter></mfDefaultSorter></th>
+                                                          <th style="width: 15%"><mfDefaultSorter by="firstname">From</mfDefaultSorter></th>
+                                                          <th style="width: 45%"><mfDefaultSorter by="content">Content</mfDefaultSorter></th>
+                                                          <th style="width: 25%"><mfDefaultSorter by="created">Created</mfDefaultSorter></th>
+                                                         </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngIf="!comments[0]"class="odd"><td colspan="3">No comments found for the ECG test.</td></tr>
+                                                        <tr *ngFor="let item of ct.data;  let i = index; ">
+                                                             <td>{{i}}</td>
+                                                            <td>{{item.firstname}}{{item.lastname}}</td>
+                                                            <td>{{item.content}}</td>
+                                                            <td>{{item.created}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td colspan="4">
+                                                                <mfBootstrapPaginator [rowsOnPageSet]="[5,10]"></mfBootstrapPaginator>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+                                              </table>
+                                            </div>
+                                        </div>
+                                    </div><!--dataTables_wrapper-->
+                              </div><!--panel-info-->
+                        </div><!--col-md-12-->
+
+                        </div><!--myTabContent-->
+                      </div><!--row-->
+
+
+
+
+                 
+                 </div><!--well-->
+           </div><!--table-responsive-->
+    </div><!--content-->
+
+</div>

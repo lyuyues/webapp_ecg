@@ -1,0 +1,39 @@
+<section class="clearfix">
+  <div class="container">
+      <div class="form">
+      
+          <ul class="tab-group">
+            <li class="tab" [ngClass]="{tabActive: isActive}" (click)="onTaggleDisplay(true)"><a>As a Patient</a></li>
+            <li class="tab" [ngClass]="{tabActive: !isActive}" (click)="onTaggleDisplay(false)"><a>As a Doctor</a></li>
+          </ul>
+      
+         <div class="tab-content">
+            <div>   
+                 <h4 *ngIf="patientLoginShow">Login to view ECG data</h4>
+                 <h4 *ngIf="!patientLoginShow">Login in to build connection with patient!</h4>  
+                 <form  (ngSubmit)="onSubmit(patientForm.value)" #patientForm="ngForm">
+                  <div class="field-wrap">
+                    <label class="general">
+                      Username
+                    </label>
+                    <input type="text" autocomplete="off" required = "required" ngModel name="username" #username = "ngModel"/>
+                  </div>                  
+                  <div class="field-wrap">
+                    <label class="general">
+                      Password
+                    </label>
+                    <input type="password" autocomplete="off" required = "required"  ngModel name="password" #password = "ngModel"/>
+                  </div>
+                  <button type="submit" class="button button-block">Login</button>
+                  <p>Not a member? <a routerLink="/signup" >Sign Up</a></p>
+          
+              </form>
+        </div>
+        
+      </div><!-- tab-content -->
+      
+</div> <!-- /form -->
+
+
+</div>
+</section>

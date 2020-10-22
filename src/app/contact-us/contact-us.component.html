@@ -1,0 +1,49 @@
+<section class="clearfix">
+        <div class="row heading">
+                <div class="col-md-12">
+                    <h2>Contact Me</h2>
+                </div>
+        </div>
+		<div class="container">
+            <div id="map-canvas" class="row">
+                <div class="col-md-6 info">
+                          <p class="information"><span class="glyphicon glyphicon-map-marker"> ADRESS: </span>EOW410, University of Victoria, Victoria, BC, Canada.</p>
+                          <p class="information"><span class="glyphicon glyphicon-phone-alt"> TELEPHONE: </span> 1 (250) 721 6029</p>
+                          <p class="information"><span class="glyphicon glyphicon-envelope"> EMAIL: </span> xdong@ece.uvic.ca</p>
+                          <a class="btn direction" href="https://www.google.ca/maps/dir//University+of+Victoria,+3800+Finnerty+Rd,+Victoria,+BC+V8P+5C2/@48.4634067,-123.3138875,17z/data=!4m15!1m6!3m5!1s0x548f71575d850fbd:0xc039d0b85e1ede74!2sUniversity+of+Victoria!8m2!3d48.4634067!4d-123.3116935!4m7!1m0!1m5!1m1!1s0x548f71575d850fbd:0xc039d0b85e1ede74!2m2!1d-123.3116935!2d48.4634067" target="_blank">Get Direction</a>
+                          <div class="clear"></div>
+                </div>
+                <div class="col-md-6">
+                          <sebm-google-map [latitude]="lat" [longitude]="lng">
+                            <sebm-google-map-marker class ="google-map"[latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+                          </sebm-google-map>
+                </div>
+            </div>
+            <div class="row">
+                <form method="post" action="contact.php" name="contactform" id="contactform">
+                    <div class="col-md-6">
+                        <fieldset>
+                            <input name="name" type="text" id="name" size="30" placeholder="Name">
+                            <br>
+                            <input name="email" type="text" id="email" size="30" placeholder="Email">
+                            <br>
+                            <input name="phone" type="text" id="phone" size="30" placeholder="Phone">
+                            <br>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-6">
+                        <fieldset>
+                            <textarea name="comments" cols="40" rows="15" id="comments" placeholder="Message"></textarea>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                        <fieldset>
+                            <button type="submit" class="learn-more">Send Message <i class="fa fa-paper-plane-o"></i></button>
+                        </fieldset>
+                    </div>
+                </form>
+            </div>
+    <!--Google Maps API-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnycWatbGyK6ldFqErjFtko1yeMclNUOA&amp;sensor=true"></script>
+		</div>
+</section>

@@ -1,0 +1,244 @@
+<section class="clearfix">
+  <div class="container">
+      <div class="form">
+        <div class="section-left">
+          <ul class="tab-group">
+            <li class="tab" [ngClass]="{tabActive: isActive}" (click)="patientSignupShow = isActive = true;"><a>As a Patient</a></li>
+            <li class="tab" [ngClass]="{tabActive: !isActive}" (click)="patientSignupShow = isActive = false;"><a>As a Doctor</a></li>
+          </ul>
+      
+         <div class="tab-content">
+            <div id="signup" *ngIf="patientSignupShow">   
+                 <h4>Sign Up to view ECG data</h4>
+          
+                 <form (ngSubmit)="onSubmit(patientForm.value)" #patientForm="ngForm">
+          
+                    <div class="top-row">
+                      <div class="field-wrap">
+                        <label class="general">
+                          First Name<span class="req">*</span>
+                        </label>
+                        <input type="text"  autocomplete="off" required = "required" ngModel name="firstname" #firstname = "ngModel" />
+                      </div>
+                  
+                      <div class="field-wrap">
+                        <label class="general">
+                          Last Name<span class="req">*</span>
+                        </label>
+                        <input type="text"autocomplete="off" required = "required" ngModel name="lastname" #lastname = "ngModel"/>
+                      </div>
+                    </div>
+                    <div class="top-row">
+                      <div class="field-wrap">
+                        <label class="general">
+                          Gender<span class="req">*</span>
+                        </label>                        
+                          <input id='radio-1' type="radio" name='gender' checked='checked' ngModel value="male" />
+                          <label for="radio-1" class="gender">Male</label>
+                          
+                          <input id='radio-2' type="radio" name='gender' ngModel value="female" />
+                          <label for="radio-2" class="gender">Female</label>
+                      </div>
+                  
+                    </div>
+                  <div class="top-row">
+                    <div class="field-wrap">
+                      <label class="general"> 
+                        Email<span class="req">*</span>
+                      </label>
+                      <input type="email"required="required" autocomplete="off" ngModel name="username" #username = "ngModel"/>
+                    </div>
+                    <div class="field-wrap">
+                      <label class="general">
+                        Confirm Email<span class="req">*</span>
+                      </label>
+                      <input type="email"required autocomplete="off"/>
+                    </div>
+                  </div>
+                  <div class="top-row">
+                  <div class="field-wrap">
+                    <label class="general">
+                      Password<span class="req">*</span>
+                    </label>
+                    <input type="password"required = "required" autocomplete="off" ngModel name="password" #password = "ngModel"/>
+                  </div>
+                  <div class="field-wrap">
+                    <label class="general">
+                      Confirm Password<span class="req">*</span>
+                    </label>
+                    <input type="password"required autocomplete="off"/>
+                  </div>
+                  </div>
+                  <div class="field-wrap">
+                    <label class="general">
+                      Birth<span class="req">*</span>
+                    </label>
+                    <input calss="birthDate"type="date" required autocomplete="off" ngModel name="birthday" #birthday = "ngModel"/>
+                  </div>
+                  <div class="top-row">
+                  <div class="field-wrap">
+                    <label class="general">
+                      Medical Plan Number
+                    </label>
+                    <input type="text" autocomplete="off" ngModel name="medicalplannumber" #medicalplannumber = "ngModel"/>
+                  </div>                  
+                  <div class="field-wrap">
+                    <label class="general">
+                      Phone
+                    </label>
+                    <input type="text" autocomplete="off" ngModel name="phone" #phone = "ngModel"/>
+                  </div>
+                  </div>
+                  <div class="field-wrap">
+                    <label class="general">
+                      Address
+                    </label>
+                    <input type="text" autocomplete="off" ngModel name="address" #address = "ngModel"/>
+                  </div>
+                  <div class="field-wrap">
+                        <label class="general">
+                        </label>                        
+                          <input id='checkbox-1' type="checkbox"  checked='checked'  ngModel name="subscribe" #subscribe = "ngModel" />
+                          <label for="checkbox-1" >Make Cardiacare doctor recommendations</label>
+                  </div>
+                  <button type="submit" class="button button-block">Get Started</button>
+      			  	  <p>Already a member? <a routerLink="/login" >Login</a></p>          
+              </form>
+
+        </div>
+        
+        <div id="login" *ngIf="!patientSignupShow">   
+           <h4>Sign Up to build connection with patient!</h4>
+          
+                <form (ngSubmit)="onSubmit(doctorForm.value)" #doctorForm="ngForm">
+          
+                    <div class="top-row">
+                      <div class="field-wrap">
+                        <label class="general">
+                          First Name<span class="req">*</span>
+                        </label>
+                        <input type="text" autocomplete="off" required = "required" ngModel name="firstname" #firstname = "ngModel" />
+                      </div>
+                  
+                      <div class="field-wrap">
+                        <label class="general">
+                          Last Name<span class="req">*</span>
+                        </label>
+                        <input type="text" autocomplete="off" required = "required" ngModel name="lastname" #lastname = "ngModel"/>
+                      </div>
+                    </div>
+                    <div class="top-row">
+                      <div class="field-wrap">
+                        <label class="general">
+                          Gender<span class="req">*</span>
+                        </label>                          
+                          <input id='radio-3' type="radio" name='gender' checked='checked' ngModel value="male" />
+                          <label for="radio-3" class="gender">Male</label>
+                          
+                          <input id='radio-4' type="radio" name='gender' ngModel value="female"/>
+                          <label for="radio-4" class="gender">Female</label>
+                      </div>
+                  
+                    </div>                  
+                  <div class="top-row">
+                    <div class="field-wrap">
+                      <label class="general">
+                        Email<span class="req">*</span>
+                      </label>
+                      <input type="email"required="required" autocomplete="off" ngModel name="username" #username = "ngModel"/>
+                    </div>
+                    <div class="field-wrap">
+                      <label class="general">
+                        Confirm Email<span class="req">*</span>
+                      </label>
+                      <input type="email"required="required" autocomplete="off"/>
+                    </div>
+                  </div>
+                  <div class="top-row">
+                  <div class="field-wrap">
+                    <label class="general">
+                     Password<span class="req">*</span>
+                    </label>
+                    <input type="password"required = "required" autocomplete="off" ngModel name="password" #password = "ngModel"/>
+                  </div>
+                  <div class="field-wrap">
+                    <label class="general">
+                      Confirm Password<span class="req">*</span>
+                    </label>
+                    <input type="password"required= "required" autocomplete="off"/>
+                  </div>
+                  </div>
+                  <div class="field-wrap">
+                    <label class="general">
+                      Birth<span class="req">*</span>
+                    </label>
+                    <input calss="birthDate"type="date" required autocomplete="off" ngModel name="birthday" #birthday = "ngModel"/>
+                  </div>
+                  <div class="top-row">
+                  <div class="field-wrap">
+                    <label class="general">
+                     Hospital
+                    </label>
+                    <input type="text" autocomplete="off" ngModel name="hospital" #hospital = "ngModel"/>
+                  </div>                  
+                  <div class="field-wrap">
+                    <label class="general">
+                      Phone
+                    </label>
+                    <input type="text" autocomplete="off" ngModel name="phone" #phone = "ngModel"/>
+                  </div>
+                  </div>
+                  <div class="field-wrap">
+                    <label class="general">
+                      Address
+                    </label>
+                    <input type="text" autocomplete="off" ngModel name="address" #address = "ngModel"/>
+                  </div>
+
+                  <div class="field-wrap">
+                        <label class="general">
+                        </label>                        
+                          <input id='checkbox-2' type="checkbox"  checked='checked'  ngModel name="subscribe" #subscribe = "ngModel" />
+                          <label for="checkbox-2" >Make patients recommendations</label>
+                  </div>                    
+                  <button type="submit" class="button button-block">Get Started</button>
+                  <p>Already a member? <a routerLink="/login" >Login</a></p>
+              </form>         
+
+        </div>
+        
+      </div><!-- tab-content -->
+    </div><!-- section-left -->
+    <div class="section-right">
+        <div class="par parsys"><div class="parbase rawHTML section">
+            <h2>Create a Cardiacare profile to manage your account online.</h2>
+            <p>If you don't already have an account, begin by creating a profile here.</p>
+        </div>
+        <div class="parbase rawHTML section">
+            <br><p><span class="fa-stack fa-2half">
+              <i class="fa fa-circle fa-4x grass"></i>
+              <strong class="fa-stack-1x fa-inverse">1</strong>
+            </span></p>
+            <h4 class="step1">Provide your Cardiacare Profile details.</h4>
+        </div>
+        <div class="parbase rawHTML section">
+            <br><p><span class="fa-stack fa-2half">
+              <i class="fa fa-circle fa-4x grass"></i>
+              <strong class="fa-stack-1x fa-inverse">2</strong>
+            </span></p>
+            <h4 class="step2">Register your account by clicking Get Started button.</h4>
+        </div>
+        <div class="parbase rawHTML section">
+            <br><p><span class="fa-stack fa-2half">
+              <i class="fa fa-circle fa-4x grass"></i>
+              <strong class="fa-stack-1x fa-inverse">3</strong>
+            </span></p>
+            <h4 class="step4">If you have an existing account, login to review your latest data</h4>
+        </div>
+        </div>      
+    </div>
+</div> <!-- /form -->
+
+
+</div>
+</section>

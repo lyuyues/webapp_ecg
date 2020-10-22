@@ -1,0 +1,87 @@
+
+
+#main .timeline-table{
+  position: relative;
+  padding-left: 50px;
+}
+.timeline-comments{
+  position: relative;
+  padding-left:0px;
+}
+.timeline-comments table tbody td a {
+  color: #337ab7;
+  cursor: pointer;
+}
+.panel-comments{
+  padding:0px;
+}
+#main .timeline-table:before {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  left: 10px;
+  content: "";
+  background: #cbd4db;
+}
+#main .timeline .item {
+  position: relative;
+}
+#main .timeline .item {
+  position: relative;
+}
+#main .timeline .item .circle {
+  position: absolute;
+  top: 18px;
+  left: -42px;
+  background: #acbbc7;
+  border: 1px solid #ccc;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+#main .timeline .item .message {
+    position: relative;
+    left: -20px;
+    z-index: 2;
+    margin-bottom: 15px;
+    background: #fff;
+    border-radius: 5px;
+    margin-top: 10px;
+    height: 40px;
+}
+#main .timeline .item .message:before {
+  position: absolute;
+  z-index: 0;
+  content: "";
+  top: 20px;
+  left: -6px;
+  box-sizing: border-box;
+  border: 5px solid transparent;
+  border-top-color: #fff;
+  border-bottom-color: transparent;
+  border-left-color: #fff;
+  border-right-color: transparent;
+  filter: drop-shadow(-1px 0 1px rgba(0, 0, 0, 0.08));
+  transform-origin: 0 0;
+  transform: rotate(-45deg);
+}
+#main .timeline .item .message div{
+    height: 40px;
+    text-align: left;
+    padding-left: 10px;
+    line-height: 40px;
+}
+#main .timeline .item .message div a{
+  color: #337ab7;
+  cursor: pointer;
+}
+
+table.recommendation{
+  margin-bottom: 0px;
+}
+div.imgloader img{
+    margin: 20px auto;
+}
+.timeline.imgloader {
+    text-align: center;
+}

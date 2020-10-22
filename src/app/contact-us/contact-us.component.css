@@ -1,0 +1,137 @@
+section{
+	width: 100%;
+  height: auto;
+}
+.clearfix{
+  height:auto;
+  padding: 0px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.container{
+    background-color: #E9ECEA;
+    padding:0px 10px 20px 10px;
+}
+.heading{
+  width:96%;
+  margin: 0 auto;
+}
+
+.heading h2 {
+  margin-bottom: 0px;
+  background-color: #8DB9ED;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.8em;
+  height: 50px;
+  color: #fff;
+  font-weight: 500;
+  line-height: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+#comments {
+  margin-top: 0;
+}
+
+#contactform {
+  height: 215px;
+}
+
+#contactform .right {
+  float: right;
+}
+
+#contactform input,
+#contactform textarea {
+  margin-bottom: 14px;
+  width: 90%;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+}
+#contactform textarea {
+    width: 100%;
+}
+#contactform input {
+  padding-left: 15px;
+  height: 44px;
+  border-radius: 0;
+}
+
+#contactform textarea {
+  padding: 15px;
+  height: 160px;
+  border-radius: 0;
+}
+
+#contactform .btn {
+  width: 100%;
+  height: 50px;
+  border-radius: 0;
+  border: 1px solid #333;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+}
+
+#contactform .btn:hover {
+  background: rgba(9,8,77,0.7);
+}
+.info{
+  padding:40px 20px;
+}
+.info p {
+    line-height: 200%;
+    color: #666;
+    padding: 5px 0 0 30px;
+    font-size: 16px;
+}
+.direction{
+    display: inline-block;
+    padding-left: 56px;
+    color: #626263;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    background-color: #EAAF00;
+    padding: 10px 20px 10px 20px;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-shadow: none;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 5px;
+    margin-left: 2.4em;
+    margin-top:1.2em;
+}
+.direction:hover {
+    color: #61bb46;
+    text-decoration: none;
+}
+
+#map-canvas {
+  width: 100%;
+  height: 304px;
+  margin-bottom: 15px;
+  border: 2px solid #fff;
+}
+.sebm-google-map-container {
+  height: 300px;
+}
+.learn-more {
+    display: table;
+    margin: 0.5em auto;
+    padding: 0.6em 1em;
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: none;
+    background: #EAAF00;
+    background-image: -webkit-linear-gradient(#EAAF00 0%, #D78100 100%);
+    font-size: 1.2em;
+}
+.grid_3 { width: 23.5%; } 
+.grid_4 { width: 32%; } 

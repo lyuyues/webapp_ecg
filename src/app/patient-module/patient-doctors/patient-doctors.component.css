@@ -1,0 +1,25 @@
+table tbody td button{
+    width:100%;
+}
+.searchdiv .form-group{
+    margin-bottom: 15px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.searchdiv .form-group label{
+    float: left;
+    line-height: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.searchdiv .form-group .input-group{
+    float: left;
+    width: 50%;
+}
+.searchdiv .form-group .input-group input{
+    padding-left: 10px;;
+}
+.imgloader{
+    text-align:  center;
+}

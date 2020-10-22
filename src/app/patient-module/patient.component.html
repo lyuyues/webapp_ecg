@@ -1,0 +1,42 @@
+<section class="clearfix">
+	<div class="container">
+		<div class="section-left">
+                   <div id="nav">
+                        <div class="user-banner"><img src="http://bit.ly/1jFjKGa" />
+                              <ul class="nav" style="margin: 6px 0;">
+                                    <li class="dropdown">
+                                          <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                                                <h5 class="username">{{result?.firstname}}{{result?.lastname}}</h5> <i class="fa fa-caret-down"></i>
+                                          </a>
+                                          <ul class="dropdown-menu dropdown-user">
+                                                <li><a routerLink="./profile"  routerLinkActive="active"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
+                                                <li class="divider"></li>
+                                                <li (click)="logout()"><a   routerLinkActive="active"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                                          </ul>
+                                    </li>
+                              </ul>
+                        </div><!-- user-banner-->
+
+                        <ul class="general_ul">
+                              <li><a routerLink="./dashboard" routerLinkActive="active"><i class="fa fa-fw fa-dashboard"></i><span>Dashboard</span></a></li>
+                              <li><a routerLink="./doctors" routerLinkActive="active"><i class="fa fa-fw fa-user-md"></i><span>My Doctors</span></a></li>
+                              <li><a routerLink="./comments" routerLinkActive="active"><i class="fa fa-fw fa-comments"></i><span>My Comments</span></a></li>
+                              <li><a routerLink="./tests" routerLinkActive="active"><i class="fa fa-fw fa-heartbeat"></i><span>My Tests</span></a></li>
+                              <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown"  routerLinkActive="active"><i class="fa fa-fw fa-leanpub"></i><span>Notes</span></a>
+                                    <ul class="dropdown-menu notes">
+                                          <li><a routerLink="./notes"  routerLinkActive="active">Notes History</a></li>
+                                          <li><a routerLink="./leave_note"  routerLinkActive="active">Leave a note</a></li>
+                                    </ul>
+                              </li>
+                        </ul><!-- general-ul-->
+                  </div><!-- nav-->
+            </div><!-- section-left-->
+            <div class = "section-right">
+                  <router-outlet></router-outlet>
+            </div>
+            <div class="clear"></div>
+      </div><!-- container-->
+</section>
+
+

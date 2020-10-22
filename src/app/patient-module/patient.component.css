@@ -1,0 +1,125 @@
+.section-left {
+    width: 15%;
+    padding: 0
+}
+.section-right{
+    width: 85%;
+    padding: 0;
+    margin-bottom: 20px;
+}
+#nav {
+  width: 100%;
+  color: #fff;
+  background: #1F2123;
+}
+.user-banner {
+  width: 100%;
+  padding: 1px 0px 1px 0px;
+  background: #68de99;
+  text-align: center;
+}
+.user-banner img {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 25px;
+  width: 80px;
+  border-radius: 100%;
+}
+.user-banner .username {
+  font-weight: bold;
+  margin-top:20px;
+  
+}
+
+#nav ul.nav li.dropdown a:hover{
+  background:#68de99;
+}
+#nav ul.nav li.dropdown ul li a:hover{
+  background:#d9edf7;
+}
+#nav .dropdown-menu{
+  min-width: 174px;
+}
+#nav a {
+  color: #737E89;
+  text-decoration: none;
+}
+#nav ul.general_ul {
+  list-style-type: none;
+  padding: 20px 5px;
+  margin: 0;
+  font-weight: 600;
+  background-color: black;
+}
+#nav ul.general_ul li.head {
+  color: #50585f;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 12px;
+}
+#nav ul.general_ul li a {
+  display: block;
+  padding: 6px 12px;
+  margin: 5px 0;
+  border-radius: 2px;
+}
+#nav ul.general_ul li a i {
+  margin-right: 8px;
+}
+#nav ul.general_ul li a:hover {
+  background: #2b2e31;
+}
+#nav ul.general_ul li a.active{
+    color: #fff;
+    background: #2DA5EE;
+ } 
+#nav ul.general_ul li ul li a:hover{
+    background: #d9edf7;
+ } 
+ul.notes{
+  left:-5px;
+}
+@media (max-width: 320px) {
+  .user-banner {
+    width: 100%;
+    padding: 1px 0px 1px 0px;
+    background: #2DCC70;
+    text-align: center;
+  }
+  .user-banner img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    margin-right: 5px;
+    border-radius: 100%;
+  }
+  .user-banner .username {
+    display: inline;
+    font-weight: bold;
+  }
+
+  #nav {
+    z-index: +10;
+    width: 100%;
+    bottom: auto;
+  }
+  #nav li.head,
+  #nav li span {
+    display: none;
+  }
+  #nav ul.general_ul {
+    padding: 3px 5px;
+  }
+  #nav li {
+    display: inline-block;
+  }
+  #nav li a {
+    padding: 6px 5px;
+  }
+  #nav li a i {
+    margin: 0 !important;
+  }
+
+
+}

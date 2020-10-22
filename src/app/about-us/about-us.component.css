@@ -1,0 +1,116 @@
+section.info{
+	width: 100%;
+}
+.aboutus{
+    height:300px;
+    margin-bottom: 20px;
+}
+.carousel-indicators li{
+        border: 1px solid #2e6da4;;
+}
+.carousel-inner {
+    height: 300px;
+}
+.carousel-inner .item{
+     height: 300px;
+}
+.carousel-inner .item img{
+     height: 300px;
+}
+.section-left{
+    padding: 4em;
+    width:60%;
+}
+.myCarousel0 {
+    background-image: url(../../assets/images/heart-care.jpg);
+    background-position-x: center;
+    background-size: 1400px;
+}
+.myCarousel1 {
+    background-image: url(../../assets/images/heart-care-1.jpg);
+    background-position-x: center;
+    background-size: 1400px;
+}
+.myCarousel2 {
+    background-image: url(../../assets/images/heart-care-2.jpg);
+    background-position-x: center;
+    background-size: 1400px;
+}
+.section-left p{
+    font-size: 5em;
+    font-family: 'brand-font-bold','Arial narrow',Arial,sans-serif;
+    color: white;
+    padding-top: 1em;
+    font-weight: 800;
+}
+.carousel-inner p{
+    font-size: 5em;
+    font-family: 'brand-font-bold','Arial narrow',Arial,sans-serif;
+    color: white;
+    padding-top: 1em;
+    padding-left:1em;
+    font-weight: 800;
+    color: lightsteelblue;
+}
+.description-feature {
+    padding: 20px 40px;
+    font-size: 1em;
+    line-height: 1.5;
+}
+.steps-container{
+    padding:40px 0px;
+}
+.description-feature .description-heading {
+    margin-bottom: 15px;
+}
+.h2 {
+    padding-left:40px;
+    line-height: 35px;
+    font-family: Verdana;
+    font-size: 18px;
+    color: #fff;
+    font-weight: normal;
+    background-color: #8DB9ED;
+    border-bottom: 2px solid #666;
+}
+.description-feature .description-body {
+    margin-left: auto;
+    margin-right: auto;
+}
+.steps-container .description-body {
+    padding: 10px 40px;
+}
+.description-feature .description-body h3{
+    color: #f0ad4e;
+    font-size: 1.3em;
+}
+.description-feature .description-body p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+    margin: 0.5em auto 1.6em auto;
+    font-weight: 400;
+}
+.step{
+    float: left;
+}
+.step .number-in-circle {
+    border-radius: 100%;
+    border: 3px solid #f0ad4e;
+    color: #f0ad4e;
+    text-align: center;
+    font-weight: 700;
+    float: left;
+    width: 30px;
+    height: 30px;
+}
+.step .description {
+    margin-top: -0.6em;
+    float: right;
+    width: 85%;
+    font-size:1.0em;
+    line-height: 1.3em;
+}
+.step .description p{
+    color:#333333;
+    font-weight: 400;
+}

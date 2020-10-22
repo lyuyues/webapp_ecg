@@ -1,0 +1,94 @@
+<div id="main">
+    <header>
+            <ol class="breadcrumb">
+            <li> <a routerLink="./dashboard">doctor</a></li>
+            <li class="active"><a routerLink="./notes">notes</a></li>
+            </ol>
+    </header>
+    <div id="content">
+            <div class="content  table-responsive">
+                  <div class="well well-bg" style="background-color: #EDF5FA;">
+                      <div class="row" style="font-size: 0.8em;">
+                        <div class="row searchdiv">
+                            <div class="col-md-6">
+                                <app-search-box (update)="updateHandler($event)"></app-search-box>
+                            </div>
+                        </div>  
+                        <div *ngIf="loadNoteData" class="col-md-12 imgloader">
+                                        <img src="../assets/images/loader.gif"/>
+                        </div>                              
+                        <div class="col-md-12">
+                            <table *ngIf="!loadNoteData" class="table table-striped recommendation " [mfData]="notes" #mf="mfDataTable" [mfRowsOnPage]="10">
+                                  <thead>
+                                      <tr>
+                                          <th style="width: 10%">
+                                              <mfDefaultSorter by="content">From</mfDefaultSorter>
+                                          </th>                                          
+                                          <th style="width: 20%">
+                                              <mfDefaultSorter by="content">Content</mfDefaultSorter>
+                                          </th>
+                                          <th style="width: 15%">
+                                              <mfDefaultSorter by="time">Occurrence Time</mfDefaultSorter>
+                                          </th>
+                                          <th style="width: 15%">
+                                              <mfDefaultSorter by="for_test.created">Associated Test</mfDefaultSorter>
+                                          </th>
+                                          <th style="width: 15%">
+                                              <mfDefaultSorter by="for_records.created">Associated Record</mfDefaultSorter>
+                                          </th>     
+                                          <th style="width: 15%">
+                                              <mfDefaultSorter by="created"> Created</mfDefaultSorter>
+                                          </th>                                                                            
+                                          <th style="width: 10%">
+                                              <mfDefaultSorter > </mfDefaultSorter>
+                                          </th>  
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let item of mf.data | searchNote:keyword">
+                                          <td>{{item?.firstname}}{{item?.lastname}}</td>
+                                          <td>{{item?.content}}</td>
+                                          <td>{{item?.time}}</td>
+                                          <td (click)="testOnclick(item.for_test[0].id)"><a>{{item?.for_test[0]?.created}}</a></td>
+                                          <td (click)="testOnclick(item.for_test[0].id,item.for_records[0].id)"><a>{{item?.for_records[0]?.created}}</a></td>
+                                          <td>{{item?.created}}</td>
+                                          <td><button class="btn btn-primary" data-toggle="modal" data-target="#myCommentModal" (click)="parseTestid(item.created,item.userid,item.id)">Comment</button></td>
+                                                  <div class="modal fade" id="myCommentModal"  mtabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <form class="search-form" #commentForm="ngForm">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                <h4 class="modal-title" id="myModalLabel">Leave a comment for note {{testTime}}</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <label>Comment content (max: 500 characters):</label>
+                                                                <textarea class="form-control" style="height:200px;" required="required"name="commentCentent" ngModel #commentCentent="ngModel"></textarea>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
+                                                                <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="onSubmit(commentForm.value)">Submit</button>
+                                                            </div>
+                                                            </form>
+                                                        </div><!-- /.modal-content -->
+                                                    </div><!-- /.modal-dialog -->
+                                                </div>
+                                      </tr>
+                                  </tbody>
+
+                                  <tfoot>
+                                      <tr>
+                                          <td colspan="7">
+                                              <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15,25]"></mfBootstrapPaginator>
+                                          </td>
+                                      </tr>
+                                  </tfoot>
+                              </table>
+                        </div><!--col-md-12-->
+
+                      </div><!--row-->
+                 </div><!--well-->
+           </div><!--table-responsive-->
+    </div><!--content-->
+
+</div>

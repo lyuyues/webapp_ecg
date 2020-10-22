@@ -1,0 +1,18 @@
+<header class="clearfix">
+    <div class="container">
+		<div class="header"></div>
+		<div class="header-left">
+				<nav>
+					<a routerLink="/home" routerLinkActive="active"><span class="glyphicon glyphicon-home"></span>Home</a>
+					<a routerLink="/aboutus" routerLinkActive="active"><span class="glyphicon glyphicon-heart"></span>About Cardiacare</a>
+					<a routerLink="/contactus"routerLinkActive="active"><span class="glyphicon glyphicon-envelope"></span>Contact</a>
+				</nav>
+		</div>
+		<div class="header-right">
+			 <a *ngIf='!logined' routerLink="/login"><span class="glyphicon glyphicon-user"></span> Login</a>
+			 <a *ngIf='logined'routerLink="['/', usercol, 'profile']"><span class="glyphicon glyphicon-user"></span> User</a>
+			 <a  routerLink="/signup"><span class="glyphicon glyphicon-log-in"></span> Signup</a>	
+		</div>
+
+	</div>
+</header>

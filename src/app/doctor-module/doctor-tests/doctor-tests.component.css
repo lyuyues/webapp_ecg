@@ -1,0 +1,10 @@
+.imgloader{
+    text-align: center;
+}
+form.search-form select {
+    width: 350%;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+    background-color: white;
+}

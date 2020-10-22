@@ -1,0 +1,77 @@
+<div id="main">
+    <header>
+            <ol class="breadcrumb">
+            <li> <a routerLink="./dashboard">patient</a></li>
+            <li class="active"><a routerLink="./doctors" >doctors</a></li>
+            </ol>
+    </header>
+    <div id="content">
+            <div class="content  table-responsive">
+                  <div class="well well-bg" style="background-color: #EDF5FA;">
+                      <div class="row" style="font-size: 0.8em;">
+                        <div class="row searchdiv">
+                            <div class="col-md-6">
+                                    <app-search-box (update)="updateHandler($event)"></app-search-box>
+                            </div>
+                        </div>  
+                        <div *ngIf="loadDoctors" class="col-md-12 imgloader">
+                            <img src="../assets/images/loader.gif"/>
+                        </div>                            
+                        <div  *ngIf="!loadDoctors"  class="col-md-12">
+                            <table *ngIf="!errorShow" class="table table-striped recommendation " [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+                                  <thead>
+                                      <tr>
+                                          <th style="width: 14%">
+                                              <mfDefaultSorter by="username">Username</mfDefaultSorter>
+                                          </th>
+                                          <th style="width: 16%">
+                                              <mfDefaultSorter by="firstname">Name</mfDefaultSorter>
+                                          </th>
+                                          <th style="width: 16%">
+                                              <mfDefaultSorter by="hospital"> Hospital</mfDefaultSorter>
+                                          </th>
+                                           <th style="width: 12%">
+                                              <mfDefaultSorter by="phone"> Tel</mfDefaultSorter>
+                                          </th>    
+                                          <th style="width: 8%">
+                                              <mfDefaultSorter by="patients"> Patients</mfDefaultSorter>
+                                          </th>
+                                          <th style="width: 14%">
+                                              <mfDefaultSorter by="connected_date"> Connected Date</mfDefaultSorter>
+                                          </th>     
+                                          <th style="width: 10%">
+                                              <mfDefaultSorter > </mfDefaultSorter>
+                                          </th>  
+                                          <th style="width: 10%">
+                                              <mfDefaultSorter > </mfDefaultSorter>
+                                          </th>                                                                                                                                                                                                   
+
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let item of mf.data| searchDoctors:keyword">
+                                          <td class='data-item'>{{item.username}}</td>
+                                          <td class='data-item'>{{item.firstname}}{{item.lastname}}</td>
+                                          <td class='data-item'>{{item.hospital}}</td>
+                                          <td class='data-item'>{{item.phone}}</td>
+                                          <td class='data-item'>{{item.patients}}</td>
+                                          <td class='data-item'>{{item.connected_date}}</td>
+                                          <td><button type="button" class="btn btn-success">Accept</button></td>
+                                          <td><button type="button" class="btn btn-danger">Decline</button></td>
+                                      </tr>
+                                  </tbody>
+                                  <tfoot>
+                                      <tr>
+                                          <td colspan="8">
+                                              <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15,25]"></mfBootstrapPaginator>
+                                          </td>
+                                      </tr>
+                                  </tfoot>
+                              </table>
+                        </div><!--col-md-12-->
+                      </div><!--row-->
+                 </div><!--well-->
+           </div><!--table-responsive-->
+    </div><!--content-->
+
+</div>

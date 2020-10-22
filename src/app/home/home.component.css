@@ -1,0 +1,155 @@
+/* li { background: grey; } */
+li:nth-child(odd) { background: white ; }
+section{
+	width: 100%;
+	height: auto;
+
+}
+.alert-danger strong{
+    text-align: center;
+}
+.alert-danger {
+    text-align: center;
+}
+.clearfix{
+  height:auto;
+  background-image:url(../../assets/images/background-section-doctor.jpg);
+}
+.info{
+  width: 100%;
+	height: auto;
+}
+.section-left, .section-right{
+padding: 2em 0;
+}
+.section-left{
+  width:60%;
+}
+.section-right{
+  padding: 10em 0 4em 0;
+  width:40%;
+}
+.section-right p{
+font-size: 24px;
+}
+.box{
+  width:50%;
+  font-family:Helvetica;
+  color:#fff;
+  background:rgba(0,0,0,0.33);
+  padding:0px 0px 30px 0px;
+  margin-left: 4em;
+}
+.tabs {
+    overflow: hidden;
+}
+.tabs h3 {
+    float: left;
+    width: 50%;
+    margin-top: 0px;
+}
+.tabs h3 a {
+    padding: 0.5em 0;
+    text-align: center;
+    font-weight: 400;
+    display: block;
+    font-size: 20px;
+}
+form h4{
+  text-align: center;
+  margin-top: 10px;
+}
+.tabActive{
+    background-color: #1ab188;
+    color:#fff;
+}
+.tabs h3:hover{
+    background: #179b77;
+
+}
+.box h1{
+  text-align:center;
+  margin:30px 0;
+  font-size:30px;
+}
+.box input{
+  display:block;
+  max-width: 300px;
+  width:80%;
+  margin:20px auto;
+  padding:10px 15px;
+  background:rgba(0,0,0,0.2);
+  color:#fff;
+  border:0;
+  border-radius: 5px;
+}
+.box input:focus,.box input:active,.box button:focus,.box button:active{
+  outline:none;
+  border: 1px solid white;
+  
+}
+.box button{
+  background:#1ab188;
+  border:0;
+  color:#fff;
+  padding:5px 10px;
+  font-size:20px;
+  width: 80%;
+  max-width:300px;
+  margin:5px auto;
+  display:block;
+  cursor:pointer;
+}
+.box button:active{
+  background:#27ae60;
+}
+.box p{
+  font-size:18px;
+  text-align:center;
+}
+.box p span{
+  cursor:pointer;
+  color:#000;
+}
+
+.text-block {
+    overflow: hidden;
+    padding: 2px 0 0;
+    line-height: 25px;
+}
+.text-block p {
+    margin: 0 0 13px;
+}
+.left_cont,.right_cont {
+    float: left;
+    width: 60%;
+    background: #fcfcfc;
+    border: 1px solid #e9e9e9;
+    margin:3em 0em;
+}
+.right_cont{
+   float:right;
+    width: 35%;
+}
+.title {
+    float: left;
+    width: 100%;
+    padding-bottom: 7px;
+}
+.title_cont h1 {
+    padding-left:12px;
+    line-height: 35px;
+    font-family: Verdana;
+    font-size: 18px;
+    color: #fff;
+    font-weight: normal;
+    background-color: #8DB9ED;
+    border-bottom: 2px solid #666;
+}
+.text_content{
+  padding:12px;
+}
+.text_content p {
+    padding-bottom: 20px;
+    text-align: justify;
+}

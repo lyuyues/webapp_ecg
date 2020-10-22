@@ -1,0 +1,96 @@
+<div id="main">
+    <header>
+            <ol class="breadcrumb">
+            <li> <a routerLink="./dashboard">doctor</a></li>
+            <li class="active"><a routerLink="./cooments">comments</a></li>
+            </ol>
+    </header>
+    <div id="content">
+          <div class="content  table-responsive">
+             <div class="well well-bg" style="background-color: #EDF5FA;">
+                 <div class="row" style="font-size: 0.8em;">
+                      <div class="col-md-12">
+                          <form class="search-form" #searchForm="ngForm">
+                              <div class="form-group">
+                                  <label>Search Comments: </label>
+                              </div>
+                              <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label for="pwd">From: &nbsp;&nbsp;</label>
+                                              <div class="input-group date" id="datepicker">
+                                                  <input type="date" class="form-control" placeholder="2015-01-01" autocomplete="off" required = "required" ngModel name="from" #from = "ngModel">
+                                              </div>
+                                          </div>
+                                       </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="pwd">To: &nbsp;&nbsp;</label>
+                                                <div class="input-group date" id="datepicker1">
+                                                    <input type="date" class="form-control"  placeholder="2016-07-07"  autocomplete="off" required = "required" ngModel name="to" #to = "ngModel">
+                                                </div>
+                                            </div>
+                                        </div>
+                                 </div>
+
+                                 <div class="row">
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label for="pwd">Keyword: &nbsp;&nbsp;</label>
+                                                  <div class="input-group">
+                                                      <input type="text" class="form-control" name="keyword" placeholder="keyword" autocomplete="off" ngModel  #keyword = "ngModel">
+                                                  </div>
+                                              </div>
+                                          </div>
+                                  </div>
+
+                                  <div class="text-right">
+                                      <button type="reset" class="btn btn-danger" (click)="onReset(searchForm.value)">Reset</button>&nbsp;&nbsp;&nbsp;
+                                      <button id="searchClick" class="btn btn-primary" (click)="onSearch(searchForm.value)">Search</button>
+                                  </div>
+                        </form>
+                    </div><!--col-md-12-->
+                </div><!--row-->
+            </div><!--well-->
+            <div *ngIf="loadCommentData" class="table table-striped recommendation imgloader ">
+                    <img src="../assets/images/loader.gif"/>
+            </div>   
+            <table *ngIf="!loadCommentData" class="table table-striped recommendation " [mfData]="comments" #mf="mfDataTable" [mfRowsOnPage]="10">
+                <thead>
+                    <tr>
+                        <th style="width: 40%">
+                            <mfDefaultSorter by="content">Content</mfDefaultSorter>
+                        </th>
+                        <th style="width: 20%">
+                            <mfDefaultSorter by="for_record.created">Associated Record</mfDefaultSorter>
+                        </th>
+                        <th style="width: 20%">
+                            <mfDefaultSorter by="for_note.created">Associated Note</mfDefaultSorter>
+                        </th>
+                        <th style="width: 20%">
+                            <mfDefaultSorter by="created">Created</mfDefaultSorter>
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of mf.data">
+                        <td>{{item?.content}}</td>
+                        <td (click)="testOnclick(item.for_record.test_id,item.for_record.id)"><a>{{item.for_record?.created}}</a></td>
+                        <td>{{item.for_note?.created}}</td>
+                        <td>{{item?.created}}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15,25]"></mfBootstrapPaginator>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div><!--table-responsive-->
+
+    </div><!--content-->
+</div>

@@ -1,0 +1,13 @@
+.panel-heading {
+    color: #fff;
+    background-color: #337ab7;
+}
+.well{
+    padding: 0px;
+}
+.panel-heading p{
+    line-height: 20px;
+    padding-left: 20px;
+    margin: 0 auto;
+    font-size: 14px;
+}

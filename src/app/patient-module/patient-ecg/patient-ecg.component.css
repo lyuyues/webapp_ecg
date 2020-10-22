@@ -1,0 +1,138 @@
+.mask{height:100%; width:100%; position:fixed; _position:absolute; top:0; z-index:1000; } 
+.opacity{ opacity:0.3; filter: alpha(opacity=30); background-color:#000; }
+.EcgActive{
+    background-color: #337ab7!important;
+    color: white!important;
+}
+.well{
+    background-color: white;
+}
+.nav-tabs>li>a {
+    color: #337ab7;
+    font-size: 1.5em;
+}
+.content .content-row{
+margin-bottom: 2em;
+}
+table tbody td button{
+    width:100%;
+}
+.content .content-row{
+    font-size: 0.8em;
+    background-color: white;
+}
+.test-info{
+    margin-bottom: 0px;
+    margin-right: 10px
+}
+.test-info-last{
+    margin-bottom: 0px;
+    margin-right: 0px
+}
+.cardiogram-wrapper{
+    height: 860px;
+    border: 1px solid #337ab7;
+}
+.cardiogram-wrapper>.panel-heading{
+    padding-left: 1em;
+}
+.cardiogram-wrapper>.dataTables_wrapper{
+    padding:1em;
+}
+.panel.panel-info.panel-test {
+    padding-right: 10px;
+}
+.panel.panel-info.panel-test-last {
+    padding-right: 0px;
+}
+.panel-info .panel-heading {
+    padding-left:10px;
+}
+.section-left{
+    width: 70%;
+    padding: 1em 0;
+}
+.section-right {
+    width: 30%;
+}
+.leave-note-button{
+    float: right;
+}
+.leave-note-button button{
+    padding:6px 10px;
+}
+.modal-content textarea.form-control {
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+}
+.form-inline .form-control {
+    width: 100%;
+    display: block;
+}
+.interval-control {
+    padding-left: 47px;
+}
+.button_gh-group {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    zoom: 1;
+}
+.button_gh {
+    position: relative;
+    overflow: visible;
+    display: inline-block;
+    padding: 0.5em 1em;
+    border: 1px solid #d4d4d4;
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 0 #fff;
+    font-size: 8px;
+    color: #333;
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    background-color: #ececec;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f4f4), to(#ececec));
+    background-image: -moz-linear-gradient(#f4f4f4, #ececec);
+    background-image: -ms-linear-gradient(#f4f4f4, #ececec);
+    background-image: -o-linear-gradient(#f4f4f4, #ececec);
+    background-image: linear-gradient(#f4f4f4, #ececec);
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    border-radius: 0.2em;
+    zoom: 1;
+}
+span.button_gh:hover {
+    background-color: #337ab7;
+}
+@media (min-width: 768px){
+    .modal-dialog {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 2em;
+    }
+}
+.modal-content{
+    text-align: left;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.modal-body{
+    padding: 15px;
+}
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+}
+.modal-footer .btn{
+    width:auto;
+    padding: 6px 12px;
+}

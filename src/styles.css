@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+	margin:0 auto;
+	max-width: 1400px;
+}
+.tick line{
+    stroke-opacity: .75;
+    stroke: rgba(0,0,0,0.5);
+}

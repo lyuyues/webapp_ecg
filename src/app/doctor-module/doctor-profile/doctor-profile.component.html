@@ -1,0 +1,52 @@
+<div id="main">
+    <header>
+            <ol class="breadcrumb">
+            <li> <a routerLink="./dashboard">doctor</a></li>
+            <li class="active"><a routerLink="./profile">profile</a></li>
+            </ol>
+    </header>
+    <div id="content">
+            <div class="content  table-responsive">
+                  <div class="well well-bg" style="background-color: #EDF5FA;">
+                      <div class="row" style="font-size: 0.8em;">
+                        <div class="col-md-12 panel-primary">
+                              <div class="contact-header panel-heading">
+                                  <p>User: &nbsp;{{result?.firstname}}{{result?.lastname}}</p>
+                              </div>
+                              <table class="table">
+                                  <thead>
+                                  </thead>
+                                  <tbody>
+                                      <tr class="text-success">
+                                          <td>ID</td>
+                                          <td>{{result?.userid}}</td>
+                                      </tr>
+                                      <tr class="text-success">
+                                          <td class="col-sm-3">Firstname</td>
+                                          <td class="col-sm-9">{{result?.firstname}}</td>
+                                      </tr>
+                                      <tr class="text-success">
+                                          <td>Lastname</td>
+                                          <td>{{result?.lastname}}</td>
+                                      </tr>
+                                      <tr class="text-success">
+                                          <td>Gender</td>
+                                          <td>{{result?.gender}}</td>
+                                      </tr>                                                                    
+                                      <tr class="text-success">
+                                          <td>Tel</td>
+                                          <td class="jack">{{result?.phone}} </td>
+                                      </tr>
+                                      <tr class="text-success">
+                                          <td>Address</td>
+                                          <td>{{result?.address}}</td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                        </div><!--col-md-12-->
+                      </div><!--row-->
+                 </div><!--well-->
+           </div><!--table-responsive-->
+    </div><!--content-->
+
+</div>

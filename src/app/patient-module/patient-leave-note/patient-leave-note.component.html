@@ -1,0 +1,153 @@
+<div id="main">
+    <header>
+            <ol class="breadcrumb">
+            <li> <a routerLink="./dashboard">patient</a></li>
+            <li class="active"> <a routerLink="./leave_note">leave a note</a></li>
+            </ol>
+    </header>
+    <div id="content">
+          <div class="content  table-responsive">
+             <div class="well well-bg" style="background-color: #EDF5FA;">
+                 <div class="row" style="font-size: 0.8em;">
+                      <div class="col-md-12">
+                          <form class="search-form" #noteForm="ngForm">
+                              <div class="form-group">
+                                  <label>Leave A Note: </label>
+                              </div>
+                              <div class="row">
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label for="pwd">Keyword: &nbsp;&nbsp;</label>
+                                                  <div class="input-group">
+                                                      <textarea name="comments" cols="80" rows="10" id="comments" required = "required" ngModel name="noteContent" #noteContent = "ngModel"></textarea>
+                                                  </div>
+                                              </div>
+                                          </div>
+                              </div>  
+                              <div class="row">
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label for="pwd">Occurrence time:</label>
+                                                <div class="input-group date">
+                                                    <input type="datetime-local" class="form-control" name="to" placeholder="2016-07-07"  autocomplete="off" ngModel name="occurrenceTime" #occurrenceTime=""ngModel>
+                                                </div>
+                                              </div>
+                                          </div>
+                              </div>  
+                              <div class="row">
+                                          <div class="col-md-7">
+                                                <div class="panel panel-defaut">
+                                                            <div class="panel-heading">
+                                                                <h2 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                                    <button>Would you like to associate this note with your ECG test?</button>
+                                                                </h2>
+                                                            </div>
+                                                            <div id="collapseOne" class="panel-collapse collapse">
+                                                                <div class="panel-body">
+                                                                    <div class="timeline">
+                                                                        <div class="form-group">
+                                                                            <label for="pwd">Please choose ECG test time:</label>
+                                                                            <div class="input-group date">
+                                                                                <div class="form-group">
+                                                                                    <label for="pwd">From: &nbsp;&nbsp;</label>
+                                                                                    <div class="input-group date">
+                                                                                        <input type="date" class="form-control" name="from" placeholder="2016-07-07" #from  autocomplete="off">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="pwd">To: &nbsp;&nbsp;</label>
+                                                                                    <div class="input-group date">
+                                                                                       <input type="date" class="form-control" name="to" placeholder="2016-07-07" #to  autocomplete="off">
+                                                                                    </div>
+                                                                                </div>
+                                                                                
+                                                                                <button id="searchClick" class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="onSearch(from.value,to.value)">Search</button>
+                                                                            </div>
+                                                                        </div> 
+                                                                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                                            <div class="modal-dialog">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                                                            &times;
+                                                                                        </button>
+                                                                                        <h4 class="modal-title" id="myModalLabel">
+                                                                                            Tests:
+                                                                                        </h4>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                            <table class="table table-striped recommendation " [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+                                                                                                <thead>
+                                                                                                    <tr>
+                                                                                                        <th style="width: 10%">
+                                                                                                            <mfDefaultSorter by="total_records">Record</mfDefaultSorter>
+                                                                                                        </th>
+                                                                                                        <th style="width: 10%">
+                                                                                                            <mfDefaultSorter by="total_comments">Comments</mfDefaultSorter>
+                                                                                                        </th>
+                                                                                                        <th style="width: 10%">
+                                                                                                            <mfDefaultSorter by="total_notes"> Notes</mfDefaultSorter>
+                                                                                                        </th>
+                                                                                                        <th style="width: 24%">
+                                                                                                            <mfDefaultSorter by="length"> Length</mfDefaultSorter>
+                                                                                                        </th>
+                                                                                                        <th style="width: 24%">
+                                                                                                            <mfDefaultSorter by="created">Created</mfDefaultSorter>
+                                                                                                        </th>
+                                                                                                        <th style="width: 11%">
+                                                                                                            <mfDefaultSorter ></mfDefaultSorter>
+                                                                                                        </th>                                                                                                        
+                                                                                                        <th style="width: 11%">
+                                                                                                            <mfDefaultSorter ></mfDefaultSorter>
+                                                                                                        </th>    
+                                                                                                    </tr>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <tr *ngFor="let item of mf.data">
+                                                                                                        <td>{{item.total_records}}</td>
+                                                                                                        <td>{{item.total_comments}}</td>
+                                                                                                        <td>{{item.total_notes}}</td>
+                                                                                                        <td>{{item.length}}</td>
+                                                                                                        <td>{{item.created}}</td>
+                                                                                                        <td><a target="_blank" href="#/patient/tests/{{item.id}}">view</a></td>
+                                                                                                        <td (click)="testOnclick(item.id)"> <input type="radio" name='select' value="ture"/>&nbsp;Select</td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                                <tfoot>
+                                                                                                    <tr>
+                                                                                                        <td colspan="7">
+                                                                                                            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15,25]"></mfBootstrapPaginator>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tfoot>
+                                                                                            </table>
+                                                                                          
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel
+                                                                                        </button>
+                                                                                        <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="onSubmit(noteForm.value)">Create
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div><!-- /.modal-content -->
+                                                                            </div><!-- /.modal -->
+                                                                        </div> 
+                                                                    </div><!--timeline-->
+                                                                </div><!--panel-body-->
+                                                            </div><!--collapse-one-->
+                                                </div><!--panel-defaut-->
+                                          </div>
+                              </div>  
+                              <div class="text-right">
+                                      <button type="reset" class="btn btn-danger">Reset</button>&nbsp;&nbsp;&nbsp;
+                                      <button type="button" class="btn btn-primary"(click)="onSubmit(noteForm.value)">Create</button>
+                              </div>                          
+                        </form>
+                    </div><!--col-md-12-->
+                </div><!--row-->
+            </div><!--well-->
+
+        </div><!--table-responsive-->
+
+    </div><!--content-->
+</div>

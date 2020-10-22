@@ -1,0 +1,93 @@
+<div id="main">
+    <header>
+            <ol class="breadcrumb">
+            <li> <a href="#">patient</a></li>
+            <li class="active">dashboard</li>
+            </ol>
+    </header>
+    <div id="content">
+         <div class="panel-group" id="accordion">
+             <div class="panel panel-defaut">
+                        <div class="panel-heading">
+                            <h2 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        <a >Recent Tests</a>
+                                        <p>A quick-glance at your latest tests.</p>
+                            </h2>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div *ngIf="loadTestData" class="timeline  imgloader">
+                                        <img src="../assets/images/loader.gif"/>
+                                </div>
+                                <div *ngIf="!loadTestData"  class="timeline timeline-table">
+                                        <div class="item" *ngFor="let item of data">
+                                            <div class="circle"></div>
+                                            <div class="message row">
+                                                <div class="col-md-4" (click)="testOnclick(item.id)"><a>{{item.created}}</a></div>
+                                                <div class="col-md-3"> {{item.total_records}} &nbsp; records</div>
+                                                <div class="col-md-3">{{item.length}}</div>
+                                                <div class="col-md-2" (click)="testOnclick(item.id)"><a>view</a></div>
+                                            </div>                   
+                                        </div><!--item-->
+                                 </div><!--timeline-->
+                             </div><!--panel-body-->
+                        </div><!--collapse-one-->
+             </div><!--panel-defaut-->
+             <div class="panel panel-defaut">
+                        <div class="panel-heading">
+                        <h2 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                    <a >Recent Comments</a>
+                                    <p>A quick-glance at your latest comments.</p>
+                        </h2>
+                        </div> <!--panel-heading-->
+                        <div id="collapseTwo" class="panel-collapse collapse in">
+                                 <div class="panel-body panel-comments">
+                                    <div *ngIf="loadCommentData" class="timeline timeline-comments imgloader">
+                                        <img src="..//assets/images/loader.gif"/>
+                                    </div>
+                                    <div *ngIf="!loadCommentData" class="timeline timeline-comments">
+                                            <table  class="table table-striped recommendation " [mfData]="comments" #mf="mfDataTable" [mfRowsOnPage]="5">
+                                                    <thead>
+                                                        <tr>
+                                                        <th style="width: 15%">
+                                                            <mfDefaultSorter by="firstname">From</mfDefaultSorter>
+                                                        </th>
+                                                        <th style="width: 25%">
+                                                            <mfDefaultSorter by="content">Content</mfDefaultSorter>
+                                                        </th>
+                                                        <th style="width: 18%">
+                                                            <mfDefaultSorter by="for_record.created">Associated Record</mfDefaultSorter>
+                                                        </th>
+                                                        <th style="width: 16%">
+                                                            <mfDefaultSorter by="for_note.created">Associated Note</mfDefaultSorter>
+                                                        </th>
+                                                        <th style="width: 18%">
+                                                            <mfDefaultSorter by="created">Created</mfDefaultSorter>
+                                                        </th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let item of mf.data">
+                                                        <td>{{item.firstname}}  {{item.lastname}}</td>
+                                                        <td>{{item.content}}</td>
+                                                        <td (click)="testOnclick(item.for_record.test_id,item.for_record.id)"><a>{{item.for_record?.created}}</a></td>
+                                                        <td>{{item.for_note?.created}}</td>
+                                                        <td>{{item.created}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                        <td colspan="5">
+                                                            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+                                                        </td>
+                                                        </tr>
+                                                    </tfoot>
+                                        </table>                                
+                                     </div><!--timeline-->
+                                </div><!--panel-body-->
+                        </div><!--collapseTwo-->
+             </div><!--panel-defaut-->
+        </div><!--panel-group-->
+    </div><!--content-->
+</div>
