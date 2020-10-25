@@ -6,6 +6,7 @@ import { LoginService } from '../../shared/services/login.service';
 import { Methods } from '../../shared/data/method-enum';
 import { CookieService } from 'angular2-cookie/core';
 import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache';
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-patient-dashboard',
   templateUrl: './patient-dashboard.component.html',
@@ -65,4 +66,29 @@ export class PatientDashboardComponent implements OnInit {
     
   }
 
+  saveData(blob, fileName: string){
+    let a = document.createElement("a");
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    
+    let url = window.URL.createObjectURL(blob);
+    a.href = url;
+    a.download = fileName;
+    a.click();
+    window.URL.revokeObjectURL(url);
+  }
+
+  downloadOnclick(test_id:string, created: any){
+    this.session_id = this.cookieService.get('sessionId');
+    let xhr = new XMLHttpRequest();
+    let name =  created + ".ishne";
+    let filename  = name.replace(/ |-|:/gi, "");
+    xhr.open("GET", environment.apiUrl + '/report/' + test_id + "?session_id=" + this.session_id);
+    xhr.responseType = "blob";
+    let self = this;
+    xhr.onload = function () {
+        self.saveData(this.response, filename);
+    };
+    xhr.send();
+  }
 }

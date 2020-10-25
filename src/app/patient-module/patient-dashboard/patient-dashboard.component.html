@@ -23,10 +23,11 @@
                                         <div class="item" *ngFor="let item of data">
                                             <div class="circle"></div>
                                             <div class="message row">
-                                                <div class="col-md-4" (click)="testOnclick(item.id)"><a>{{item.created}}</a></div>
-                                                <div class="col-md-3"> {{item.total_records}} &nbsp; records</div>
-                                                <div class="col-md-3">{{item.length}}</div>
-                                                <div class="col-md-2" (click)="testOnclick(item.id)"><a>view</a></div>
+                                                <div class="col-md-3" (click)="testOnclick(item.id)"><a>{{item.created}}</a></div>
+                                                <div class="col-md-2"> {{item.total_records}} &nbsp; records</div>
+                                                <div class="col-md-3"> {{item.length}}</div>
+                                                <div class="col-md-2"(click)="testOnclick(item.id)"><a>view</a></div>
+                                                <div class="col-md-2"(click)="downloadOnclick(item.id, item.created)"><a>report</a></div>
                                             </div>                   
                                         </div><!--item-->
                                  </div><!--timeline-->
