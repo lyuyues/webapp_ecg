@@ -1,6 +1,5 @@
 import { Component, OnInit,ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { saveAs } from "file-saver";
 import { Angular2Csv } from 'angular2-csv/Angular2-csv';
 import { TextEncoder } from 'text-encoding';
 import { DataTableModule } from 'angular2-datatable';
